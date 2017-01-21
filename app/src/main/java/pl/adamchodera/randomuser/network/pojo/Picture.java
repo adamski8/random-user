@@ -1,9 +1,10 @@
-package pl.adamchodera.randomuser.models;
+package pl.adamchodera.randomuser.network.pojo;
 
-public class Picture {
+import io.realm.RealmObject;
+
+public class Picture extends RealmObject {
 
     private String large;
-    private String medium;
     private String thumbnail;
 
     public String getLarge() {
@@ -12,14 +13,6 @@ public class Picture {
 
     public void setLarge(String large) {
         this.large = large;
-    }
-
-    public String getMedium() {
-        return medium;
-    }
-
-    public void setMedium(String medium) {
-        this.medium = medium;
     }
 
     public String getThumbnail() {

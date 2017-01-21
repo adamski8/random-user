@@ -3,7 +3,7 @@ package pl.adamchodera.randomuser.database;
 import java.util.List;
 
 import io.realm.Realm;
-import pl.adamchodera.randomuser.models.User;
+import pl.adamchodera.randomuser.network.pojo.User;
 
 public class DatabaseHelper {
 

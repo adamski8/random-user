@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.utils;
+package pl.adamchodera.randomuser.network;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

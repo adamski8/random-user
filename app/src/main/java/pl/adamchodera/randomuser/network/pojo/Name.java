@@ -1,8 +1,8 @@
-package pl.adamchodera.randomuser.models;
+package pl.adamchodera.randomuser.network.pojo;
 
 import io.realm.RealmObject;
 
-public class Name extends RealmObject{
+public class Name extends RealmObject {
 
     private String title;
     private String first;

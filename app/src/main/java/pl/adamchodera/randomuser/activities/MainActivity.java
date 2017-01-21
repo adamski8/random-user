@@ -6,7 +6,7 @@ import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
-import pl.adamchodera.randomuser.models.User;
+import pl.adamchodera.randomuser.network.pojo.User;
 
 public class MainActivity extends BaseActivity {
 

@@ -7,10 +7,10 @@ import java.util.List;
 
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
-import pl.adamchodera.randomuser.models.User;
-import pl.adamchodera.randomuser.models.UsersList;
+import pl.adamchodera.randomuser.network.pojo.User;
+import pl.adamchodera.randomuser.network.pojo.UsersList;
 import pl.adamchodera.randomuser.network.DownloadDataUtil;
-import pl.adamchodera.randomuser.utils.NetworkAvailabilityUtil;
+import pl.adamchodera.randomuser.network.NetworkAvailabilityUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

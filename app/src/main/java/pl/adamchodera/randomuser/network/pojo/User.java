@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.models;
+package pl.adamchodera.randomuser.network.pojo;
 
 import io.realm.RealmObject;
 
@@ -14,7 +14,7 @@ public class User extends RealmObject {
     private String phone;
     private String cell;
 //    private Id id;
-//    private Picture picture;
+    private Picture picture;
 //    private String nat;
 //
 //    public String getGender() {

@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.models;
+package pl.adamchodera.randomuser.network.pojo;
 
 public class Login {
 
