@@ -4,12 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import pl.adamchodera.randomuser.R;
-import pl.adamchodera.randomuser.utils.Commons;
-import pl.adamchodera.randomuser.utils.NetworkUtil;
+import pl.adamchodera.randomuser.database.DatabaseHelper;
+import pl.adamchodera.randomuser.models.User;
+import pl.adamchodera.randomuser.models.UsersList;
+import pl.adamchodera.randomuser.network.DownloadDataUtil;
 import pl.adamchodera.randomuser.views.CustomRingProgressBar;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,18 +31,15 @@ public class SplashActivity extends AppCompatActivity {
 
         setupProgressBarListener();
 
+        fetchAndSaveLocallyDataFromServer();
 
-        if (checkIfAppsDataIsCached()) {
-            progressBar.smoothlyFillProgressBar(
-                    Commons.PROGRESS_BAR_ANIMATION_MIN_DURATION_IN_MILLIS,
-                    Commons.PROGRESS_BAR_ANIMATION_UPDATE_INTERVAL_IN_MILLIS);
-        } else {
-            if (NetworkUtil.isInternetConnectionAvailable(this)) {
-                fetchAndSaveLocallyDataFromServer();
-            } else {
-                internetConnectionNotAvailable();
-            }
-        }
+//        if (checkIfAppsDataIsCached()) {
+//            progressBar.smoothlyFillProgressBar(
+//                    Commons.PROGRESS_BAR_ANIMATION_MIN_DURATION_IN_MILLIS,
+//                    Commons.PROGRESS_BAR_ANIMATION_UPDATE_INTERVAL_IN_MILLIS);
+//        } else {
+//
+//        }
     }
 
     private void internetConnectionNotAvailable() {
@@ -43,12 +47,24 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void fetchAndSaveLocallyDataFromServer() {
-        // TODO implement
+        DownloadDataUtil.getRandomUsers(new Callback<UsersList>() {
+            @Override
+            public void onResponse(Call<UsersList> call, Response<UsersList> response) {
+                List<User> list = response.body().getUsers();
+                DatabaseHelper.saveUsers(list);
+            }
+
+            @Override
+            public void onFailure(Call<UsersList> call, Throwable t) {
+
+                t.printStackTrace();
+            }
+        });
     }
 
     private boolean checkIfAppsDataIsCached() {
         // TODO implement
-        return true;
+        return false;
     }
 
     private void setupProgressBarListener() {
