@@ -26,11 +26,18 @@ android {
 
 dependencies {
     final SUPPORT_LIBRARY_VERSION = '25.1.0'
+    final RETROFIT_LIBRARY_VERSION = '2.1.0'
 
+    // Support Libraries
     compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    // networking
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_LIBRARY_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_LIBRARY_VERSION"
+    compile 'com.google.code.gson:gson:2.6.1'
 
     // UI widgets
     compile 'com.github.HotBitmapGG:RingProgressBar:V1.2.2'
