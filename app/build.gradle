@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.infullmobile.toolkit'
 
+apply plugin: 'me.tatarka.retrolambda' // make sure to apply last!
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -21,7 +23,10 @@ android {
     lintOptions {
         disable 'AllowBackup', "GoogleAppIndexingWarning"
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {

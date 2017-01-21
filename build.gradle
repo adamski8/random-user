@@ -10,6 +10,7 @@ buildscript {
   dependencies {
     classpath 'com.android.tools.build:gradle:2.2.3'
     classpath 'com.infullmobile:toolkit:0.3.20'
+    classpath 'me.tatarka:gradle-retrolambda:3.2.5'
   }
 }
 

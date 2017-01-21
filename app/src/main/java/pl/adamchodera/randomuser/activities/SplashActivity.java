@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import io.netopen.hotbitmapgg.library.view.RingProgressBar;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.utils.Commons;
 import pl.adamchodera.randomuser.utils.NetworkUtil;
@@ -53,12 +52,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void setupProgressBarListener() {
-        progressBar.setOnProgressListener(new RingProgressBar.OnProgressListener() {
-            @Override
-            public void progressToComplete() {
-                gotToMainActivity();
-            }
-        });
+        progressBar.setOnProgressListener(this::gotToMainActivity);
     }
 
     private void gotToMainActivity() {
