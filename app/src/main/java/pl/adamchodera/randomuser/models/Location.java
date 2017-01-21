@@ -1,6 +1,8 @@
 package pl.adamchodera.randomuser.models;
 
-public class Location {
+import io.realm.RealmObject;
+
+public class Location extends RealmObject {
 
     private String street;
     private String city;

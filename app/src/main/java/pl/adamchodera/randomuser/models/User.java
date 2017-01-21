@@ -1,6 +1,8 @@
 package pl.adamchodera.randomuser.models;
 
-public class User {
+import io.realm.RealmObject;
+
+public class User extends RealmObject {
 
 //    private String gender;
     private Name name;

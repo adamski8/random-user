@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.infullmobile.toolkit'
+apply plugin: 'realm-android'
 
 apply plugin: 'me.tatarka.retrolambda' // make sure to apply last!
 
