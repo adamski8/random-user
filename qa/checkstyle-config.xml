@@ -1,0 +1,135 @@
+<?xml version="1.0"?><!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE\:OFF(.*)" />
+        <property name="onCommentFormat" value="CHECKSTYLE\:ON(.*)" />
+    </module>
+    <module name="FileLength">
+        <property name="severity" value="warning" />
+    </module>
+    <module name="FileTabCharacter" />
+
+    <!-- Trailing spaces -->
+    <module name="RegexpSingleline">
+        <property name="format" value="\s+$" />
+        <property name="message" value="Line has trailing spaces." />
+    </module>
+
+    <module name="TreeWalker">
+        <property name="cacheFile" value="bin/cachefile" />
+        <module name="EmptyBlock" >
+            <property name="option" value="text" />
+        </module>
+        <module name="LeftCurly" />
+        <module name="NeedBraces" />
+        <module name="RightCurly" />
+        <module name="AvoidNestedBlocks" />
+        <module name="FinalClass">
+            <property name="severity" value="error" />
+        </module>
+        <module name="InterfaceIsType" />
+        <module name="HideUtilityClassConstructor" />
+        <module name="MutableException" />
+        <module name="ArrayTrailingComma" />
+        <module name="CovariantEquals" />
+        <module name="EmptyStatement" />
+        <module name="EqualsAvoidNull" />
+        <module name="EqualsHashCode" />
+        <module name="FinalLocalVariable">
+            <property name="severity" value="warning" />
+        </module>
+        <module name="IllegalInstantiation" />
+        <module name="InnerAssignment" />
+        <module name="MagicNumber">
+            <property name="severity" value="warning" />
+        </module>
+        <module name="MissingSwitchDefault" />
+        <module name="DefaultComesLast" />
+        <module name="FallThrough" />
+        <module name="ModifiedControlVariable" />
+        <module name="SimplifyBooleanExpression" />
+        <module name="SimplifyBooleanReturn" />
+        <module name="StringLiteralEquality" />
+        <module name="NestedForDepth">
+            <property name="max" value="0" />
+        </module>
+        <module name="NestedIfDepth">
+            <property name="max" value="1" />
+        </module>
+        <module name="NoFinalizer" />
+        <module name="NoClone" />
+        <module name="PackageDeclaration" />
+        <module name="ReturnCount">
+            <property name="max" value="3" />
+        </module>
+        <module name="ParameterAssignment" />
+        <module name="ExplicitInitialization" />
+        <module name="MultipleStringLiterals" />
+        <module name="MultipleVariableDeclarations" />
+        <module name="UnnecessaryParentheses" />
+        <module name="OneStatementPerLine" />
+        <module name="AvoidStarImport" />
+        <module name="AvoidStaticImport" />
+        <module name="IllegalImport" />
+        <module name="RedundantImport" />
+        <module name="UnusedImports" />
+        <module name="JavadocStyle" />
+
+        <module name="BooleanExpressionComplexity">
+            <property name="max" value="2" />
+        </module>
+        <module name="CyclomaticComplexity">
+            <property name="max" value="10" />
+        </module>
+        <module name="NPathComplexity">
+            <property name="max" value="200" />
+            <property name="severity" value="warning" />
+        </module>
+        <module name="JavaNCSS">
+            <property name="methodMaximum" value="40" />
+            <property name="classMaximum" value="1000" />
+            <property name="fileMaximum" value="1100" />
+        </module>
+        <module name="NewlineAtEndOfFile">
+            <property name="severity" value="ignore" />
+        </module>
+        <module name="UpperEll" />
+        <module name="ArrayTypeStyle" />
+        <module name="OuterTypeFilename" />
+        <module name="ModifierOrder" />
+        <module name="RedundantModifier" />
+        <module name="LocalVariableName" />
+        <module name="TypeName" />
+        <module name="MethodName" />
+        <module name="ConstantName" />
+        <module name="LocalFinalVariableName" />
+        <module name="MemberName" />
+        <module name="PackageName" />
+        <module name="ParameterName" />
+        <module name="StaticVariableName" />
+        <module name="FileContentsHolder " />
+        <module name="LineLength">
+            <property name="max" value="120" />
+            <property name="severity" value="error" />
+        </module>
+        <module name="ParameterNumber">
+            <property name="max" value="5" />
+        </module>
+        <module name="OuterTypeNumber">
+            <property name="max" value="1" />
+        </module>
+        <module name="GenericWhitespace" />
+        <module name="EmptyForIteratorPad" />
+        <module name="MethodParamPad" />
+        <module name="NoWhitespaceAfter" />
+        <module name="NoWhitespaceBefore" />
+        <module name="TypecastParenPad" />
+        <module name="ParenPad" />
+        <module name="TypecastParenPad" />
+        <module name="WhitespaceAfter" />
+        <module name="WhitespaceAround" />
+    </module>
+</module>
