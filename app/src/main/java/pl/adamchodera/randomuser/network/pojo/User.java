@@ -15,6 +15,7 @@ public class User extends RealmObject {
     private String cell;
 //    private Id id;
     private Picture picture;
+    private int ima;
 //    private String nat;
 //
 //    public String getGender() {
@@ -25,12 +26,24 @@ public class User extends RealmObject {
 //        this.gender = gender;
 //    }
 
-    public Name getName() {
-        return name;
+    public String getName() {
+        return name.getTitle() + " " + name.getFirst() + " " + name.getLast();
     }
 
     public void setName(Name name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhotoUrl() {
+        return picture.getMedium();
     }
 //
 //    public Location getLocation() {

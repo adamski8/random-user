@@ -2,22 +2,20 @@ package pl.adamchodera.randomuser.activities;
 
 import android.os.Bundle;
 
-import io.realm.Realm;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
+import pl.adamchodera.randomuser.fragments.UsersListFragment;
 import pl.adamchodera.randomuser.network.pojo.User;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements UsersListFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        Realm realm = Realm.getDefaultInstance();
+    @Override
+    public void onListFragmentInteraction(User item) {
 
-        RealmQuery<User> query = realm.where(User.class);
-        RealmResults<User> loadedUsers = query.findAll();
     }
 }

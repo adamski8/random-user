@@ -5,6 +5,7 @@ import io.realm.RealmObject;
 public class Picture extends RealmObject {
 
     private String large;
+    private String medium;
     private String thumbnail;
 
     public String getLarge() {
@@ -23,4 +24,7 @@ public class Picture extends RealmObject {
         this.thumbnail = thumbnail;
     }
 
+    public String getMedium() {
+        return medium;
+    }
 }
