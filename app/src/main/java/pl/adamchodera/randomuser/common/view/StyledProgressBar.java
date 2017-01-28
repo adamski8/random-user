@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.views;
+package pl.adamchodera.randomuser.common.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

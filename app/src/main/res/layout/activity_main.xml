@@ -5,10 +5,10 @@
     android:id="@+id/activity_main_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.adamchodera.randomuser.activities.MainActivity">
+    tools:context="pl.adamchodera.randomuser.feature.details.userslist.MainActivity">
 
     <fragment
-        android:name="pl.adamchodera.randomuser.fragments.UsersListFragment"
+        android:name="pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment"
         android:id="@+id/id_fragment_users_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

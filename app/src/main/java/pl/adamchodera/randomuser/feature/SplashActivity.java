@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.activities;
+package pl.adamchodera.randomuser.feature;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,13 @@ import android.os.Bundle;
 import java.util.List;
 
 import pl.adamchodera.randomuser.R;
+import pl.adamchodera.randomuser.common.activity.BaseActivity;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
+import pl.adamchodera.randomuser.feature.userslist.UsersListActivity;
+import pl.adamchodera.randomuser.network.util.DownloadDataUtil;
+import pl.adamchodera.randomuser.network.util.NetworkAvailabilityUtil;
 import pl.adamchodera.randomuser.network.pojo.User;
 import pl.adamchodera.randomuser.network.pojo.UsersList;
-import pl.adamchodera.randomuser.network.DownloadDataUtil;
-import pl.adamchodera.randomuser.network.NetworkAvailabilityUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,6 +57,6 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void gotToMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, UsersListActivity.class));
     }
 }

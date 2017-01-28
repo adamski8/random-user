@@ -1,14 +1,16 @@
-package pl.adamchodera.randomuser.activities;
+package pl.adamchodera.randomuser.feature.userslist;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import pl.adamchodera.randomuser.Commons;
+import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.R;
-import pl.adamchodera.randomuser.fragments.UsersListFragment;
+import pl.adamchodera.randomuser.common.activity.BaseActivity;
+import pl.adamchodera.randomuser.feature.details.UserDetailsActivity;
+import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
 import pl.adamchodera.randomuser.network.pojo.User;
 
-public class MainActivity extends BaseActivity implements UsersListFragment.OnListFragmentInteractionListener {
+public class UsersListActivity extends BaseActivity implements UsersListFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

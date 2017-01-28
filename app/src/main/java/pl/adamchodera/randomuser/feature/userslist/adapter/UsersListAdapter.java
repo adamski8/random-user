@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.views.adapters;
+package pl.adamchodera.randomuser.feature.userslist.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +14,7 @@ import java.util.List;
 
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
-import pl.adamchodera.randomuser.fragments.UsersListFragment;
+import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
 import pl.adamchodera.randomuser.network.pojo.User;
 
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.ViewHolder> {

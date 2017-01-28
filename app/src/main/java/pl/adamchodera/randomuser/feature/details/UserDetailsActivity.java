@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.activities;
+package pl.adamchodera.randomuser.feature.details;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.realm.Realm;
 import io.realm.RealmQuery;
-import pl.adamchodera.randomuser.Commons;
+import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.network.pojo.User;
 

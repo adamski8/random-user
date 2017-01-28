@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.fragments;
+package pl.adamchodera.randomuser.feature.userslist.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
+import pl.adamchodera.randomuser.feature.userslist.adapter.UsersListAdapter;
 import pl.adamchodera.randomuser.network.pojo.User;
-import pl.adamchodera.randomuser.views.adapters.UsersListAdapter;
 
 public class UsersListFragment extends Fragment {
 

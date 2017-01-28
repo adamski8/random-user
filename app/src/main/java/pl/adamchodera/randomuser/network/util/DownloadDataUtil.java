@@ -1,7 +1,8 @@
-package pl.adamchodera.randomuser.network;
+package pl.adamchodera.randomuser.network.util;
 
+import pl.adamchodera.randomuser.network.RestClientService;
 import pl.adamchodera.randomuser.network.pojo.UsersList;
-import pl.adamchodera.randomuser.Commons;
+import pl.adamchodera.randomuser.common.Commons;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

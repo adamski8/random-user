@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.activities;
+package pl.adamchodera.randomuser.common.activity;
 
 import android.support.v7.app.AppCompatActivity;
 

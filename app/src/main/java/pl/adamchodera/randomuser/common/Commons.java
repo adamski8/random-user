@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser;
+package pl.adamchodera.randomuser.common;
 
 public interface Commons {
 
