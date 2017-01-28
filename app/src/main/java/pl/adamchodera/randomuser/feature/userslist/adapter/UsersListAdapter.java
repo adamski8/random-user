@@ -42,7 +42,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
         holder.user = users.get(position);
         holder.name.setText(holder.user.getFullName().toUpperCase());
         holder.email.setText(holder.user.getEmail());
-        holder.date.setText(holder.user.getRegisteredData().substring(0, holder.user.getRegisteredData().length() - 3));
+        holder.date.setText(holder.user.getRegisteredDateFormatted());
 
         Picasso.with(context)
                 .load(holder.user.getMediumPictureUrl())

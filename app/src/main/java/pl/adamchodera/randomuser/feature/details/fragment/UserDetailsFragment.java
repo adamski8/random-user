@@ -23,23 +23,27 @@ import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
 import pl.adamchodera.randomuser.database.model.User;
+import pl.adamchodera.randomuser.feature.details.view.SectionView;
 
 public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
 
-    @Bind(R.id.id_activity_user_details_image)
+    @Bind(R.id.id_fragment_user_details_image)
     public ImageView imageView;
 
-    @Bind(R.id.id_activity_user_details_email)
+    @Bind(R.id.id_fragment_user_details_email)
     public TextView emailView;
 
-    @Bind(R.id.id_activity_user_details_app_bar)
+    @Bind(R.id.id_fragment_user_details_app_bar)
     public AppBarLayout appBarLayout;
 
-    @Bind(R.id.id_activity_user_details_toolbar_layout)
+    @Bind(R.id.id_fragment_user_details_toolbar_layout)
     public CollapsingToolbarLayout collapsingToolbarLayout;
 
-    @Bind(R.id.id_activity_user_details_toolbar)
+    @Bind(R.id.id_fragment_user_details_toolbar)
     public Toolbar toolbar;
+
+    @Bind(R.id.id_fragment_user_details_content)
+    public SectionView sectionView;
 
     private User user;
 
@@ -77,7 +81,7 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         return view;
     }
 
-    @OnClick(R.id.id_activity_user_details_fab_button)
+    @OnClick(R.id.id_fragment_user_details_fab_button)
     public void composeEmailToUser() {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
@@ -91,9 +95,18 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     }
 
     private void setupViews() {
+        if (user == null) {
+            return;
+        }
+
         setupToolbar();
         emailView.setText(user.getEmail());
         setupUserImage();
+        setupDetailsSection();
+    }
+
+    private void setupDetailsSection() {
+        sectionView.setupView(user);
     }
 
     private void setupToolbar() {
@@ -124,14 +137,14 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
             // expanded
             emailView.setTextSize(16);
             emailView.setVisibility(View.VISIBLE);
-            emailView.setPadding((int) (getResources().getDimension(R.dimen.id_activity_user_details_email_padding_left_expanded)),
+            emailView.setPadding((int) (getResources().getDimension(R.dimen.activity_user_details_email_padding_left_expanded)),
                     0, 0, (int) getResources().getDimension(R.dimen.margin_medium));
         } else if (appBarLayout.getTotalScrollRange() == Math.abs(verticalOffset)) {
             // collapsed
             emailView.setVisibility(View.VISIBLE);
             emailView.setTextSize(20);
-            emailView.setPadding((int) (getResources().getDimension(R.dimen.id_activity_user_details_email_padding_left_collapsed)), 0, 0, (int)
-                    (getResources().getDimension(R.dimen.toolbar_height) -
+            emailView.setPadding((int) (getResources().getDimension(R.dimen.activity_user_details_email_padding_left_collapsed)), 0, 0, (int)
+                    (getResources().getDimension(R.dimen.toolbar_default_height) -
                             getResources().getDimension(R.dimen.margin_medium)));
         } else {
             emailView.setVisibility(View.INVISIBLE);

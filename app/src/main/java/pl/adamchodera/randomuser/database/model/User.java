@@ -4,6 +4,9 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import pl.adamchodera.randomuser.network.pojo.RemoteUser;
 
+import static pl.adamchodera.randomuser.common.Commons.Chars.NEW_LINE;
+import static pl.adamchodera.randomuser.common.Commons.Chars.SPACE;
+
 public class User extends RealmObject {
 
     @PrimaryKey
@@ -18,7 +21,7 @@ public class User extends RealmObject {
     private String state;
     private String postcode;
 
-    private String registeredData;
+    private String registeredDate;
     private String phoneNumber;
     private String cellNumber;
 
@@ -40,7 +43,7 @@ public class User extends RealmObject {
         this.state = remoteUser.getLocation().getState();
         this.postcode = remoteUser.getLocation().getPostcode();
 
-        this.registeredData = remoteUser.getRegistered();
+        this.registeredDate = remoteUser.getRegistered();
         this.phoneNumber = remoteUser.getPhone();
         this.cellNumber = remoteUser.getCell();
 
@@ -53,7 +56,7 @@ public class User extends RealmObject {
     }
 
     public String getFullName() {
-        return getTitle() + " " + getFirstName() + " " + getLastName();
+        return getTitle() + SPACE + getFirstName() + SPACE + getLastName();
     }
 
     public String getStreet() {
@@ -76,8 +79,8 @@ public class User extends RealmObject {
         this.postcode = postcode;
     }
 
-    public String getRegisteredData() {
-        return registeredData;
+    public String getRegisteredDateFormatted() {
+        return registeredDate.substring(0, registeredDate.length() - 3);
     }
 
     public String getPhoneNumber() {
@@ -106,5 +109,13 @@ public class User extends RealmObject {
 
     public String getMediumPictureUrl() {
         return mediumPictureUrl;
+    }
+
+    public String getAllPhoneNumbersFormatted() {
+        return phoneNumber + NEW_LINE + cellNumber;
+    }
+
+    public String getLocationFormatted() {
+        return street + NEW_LINE + postcode + SPACE + city + NEW_LINE + state;
     }
 }
