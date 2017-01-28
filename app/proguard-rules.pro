@@ -62,3 +62,6 @@
 -keepclasseswithmembernames class * {
     @butterknife.* <methods>;
 }
+
+# Picasso
+-dontwarn com.squareup.okhttp.**

@@ -10,63 +10,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
+import pl.adamchodera.randomuser.database.DatabaseHelper;
+import pl.adamchodera.randomuser.database.model.User;
 import pl.adamchodera.randomuser.feature.userslist.adapter.UsersListAdapter;
-import pl.adamchodera.randomuser.network.pojo.User;
 
 public class UsersListFragment extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
-    private RealmResults<User> loadedUsers;
+    private RealmResults<User> allUsers;
 
     public UsersListFragment() {
-    }
-
-    public static UsersListFragment newInstance() {
-        UsersListFragment fragment = new UsersListFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Realm realm = Realm.getDefaultInstance();
-
-        RealmQuery<User> query = realm.where(User.class);
-        loadedUsers = query.findAll();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Realm.getDefaultInstance().close();
+        allUsers = DatabaseHelper.getAllUsers();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_users_list, container, false);
-
-
-        RecyclerView recyclerView = (RecyclerView) view;
-
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        recyclerView.setAdapter(new UsersListAdapter(getContext(), loadedUsers, mListener));
+        setupRecyclerView((RecyclerView) view);
 
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -85,7 +56,16 @@ public class UsersListFragment extends Fragment {
         mListener = null;
     }
 
+    private void setupRecyclerView(final RecyclerView recyclerView) {
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        recyclerView.setAdapter(new UsersListAdapter(getContext(), allUsers, mListener));
+    }
+
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(User item);
+        void onListFragmentInteraction(final User item);
     }
 }

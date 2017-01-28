@@ -3,16 +3,19 @@ package pl.adamchodera.randomuser.feature;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.activity.BaseActivity;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
+import pl.adamchodera.randomuser.database.mapper.UsersMapper;
+import pl.adamchodera.randomuser.database.model.User;
 import pl.adamchodera.randomuser.feature.userslist.UsersListActivity;
+import pl.adamchodera.randomuser.network.pojo.RemoteUser;
+import pl.adamchodera.randomuser.network.pojo.UsersList;
 import pl.adamchodera.randomuser.network.util.DownloadDataUtil;
 import pl.adamchodera.randomuser.network.util.NetworkAvailabilityUtil;
-import pl.adamchodera.randomuser.network.pojo.User;
-import pl.adamchodera.randomuser.network.pojo.UsersList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,8 +46,7 @@ public class SplashActivity extends BaseActivity {
         DownloadDataUtil.getRandomUsers(new Callback<UsersList>() {
             @Override
             public void onResponse(Call<UsersList> call, Response<UsersList> response) {
-                List<User> users = response.body().getUsers();
-                DatabaseHelper.saveUsers(users);
+                parseAndSaveResponse(response);
                 gotToMainActivity();
             }
 
@@ -54,6 +56,13 @@ public class SplashActivity extends BaseActivity {
                 // TODO implement
             }
         });
+    }
+
+    private void parseAndSaveResponse(final Response<UsersList> response) {
+        final List<RemoteUser> remoteUsers = response.body().getUsers();
+        final ArrayList<User> users = UsersMapper.fromRemoteUsers(remoteUsers);
+
+        DatabaseHelper.saveUsers(users);
     }
 
     private void gotToMainActivity() {

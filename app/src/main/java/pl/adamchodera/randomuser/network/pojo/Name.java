@@ -1,8 +1,6 @@
 package pl.adamchodera.randomuser.network.pojo;
 
-import io.realm.RealmObject;
-
-public class Name extends RealmObject {
+public class Name {
 
     private String title;
     private String first;
@@ -16,9 +14,7 @@ public class Name extends RealmObject {
         return first;
     }
 
-
     public String getLast() {
         return last;
     }
-
 }

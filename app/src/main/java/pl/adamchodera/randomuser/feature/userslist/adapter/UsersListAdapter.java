@@ -14,8 +14,8 @@ import java.util.List;
 
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
+import pl.adamchodera.randomuser.database.model.User;
 import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
-import pl.adamchodera.randomuser.network.pojo.User;
 
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.ViewHolder> {
 
@@ -40,12 +40,12 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.user = users.get(position);
-        holder.name.setText(holder.user.getName().toUpperCase());
+        holder.name.setText(holder.user.getFullName().toUpperCase());
         holder.email.setText(holder.user.getEmail());
-        holder.date.setText(holder.user.getRegistered().substring(0, holder.user.getRegistered().length() - 3));
+        holder.date.setText(holder.user.getRegisteredData().substring(0, holder.user.getRegisteredData().length() - 3));
 
         Picasso.with(context)
-                .load(holder.user.getPhotoUrl())
+                .load(holder.user.getMediumPictureUrl())
                 .centerCrop()
                 .fit()
                 .error(R.drawable.ic_error)

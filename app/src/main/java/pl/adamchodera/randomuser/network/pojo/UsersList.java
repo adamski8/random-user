@@ -4,9 +4,9 @@ import java.util.List;
 
 public class UsersList {
 
-    private List<User> results;
+    private List<RemoteUser> results;
 
-    public List<User> getUsers() {
+    public List<RemoteUser> getUsers() {
         return results;
     }
 

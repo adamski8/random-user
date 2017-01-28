@@ -1,8 +1,6 @@
 package pl.adamchodera.randomuser.network.pojo;
 
-import io.realm.RealmObject;
-
-public class Picture extends RealmObject {
+public class Picture {
 
     private String large;
     private String medium;

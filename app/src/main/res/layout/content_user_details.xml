@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".feature.details.UserDetailsActivity"
-    tools:showIn="@layout/activity_user_details">
+    tools:showIn="@layout/fragment_user_details">
 
     <TextView
         android:layout_width="wrap_content"
