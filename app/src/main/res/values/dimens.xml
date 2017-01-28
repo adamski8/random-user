@@ -6,5 +6,14 @@
     <dimen name="margin_standard">16dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_small">4dp</dimen>
+    <dimen name="app_bar_height">360dp</dimen>
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="id_activity_user_details_image_margin_bottom">56dp</dimen>
+    <dimen name="id_activity_user_details_email_padding_left_expanded">34dp</dimen>
+    <dimen name="id_activity_user_details_email_padding_left_collapsed">75dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="item_fragment_users_list_image_height">150dp</dimen>
+    <dimen name="item_fragment_users_list_image_width">100dp</dimen>
 
 </resources>

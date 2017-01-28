@@ -10,8 +10,4 @@ public class UsersList {
         return results;
     }
 
-    public void setUsers(List<User> users) {
-        this.results = users;
-    }
-
 }

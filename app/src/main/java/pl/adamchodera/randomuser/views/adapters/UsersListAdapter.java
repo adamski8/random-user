@@ -15,25 +15,19 @@ import java.util.List;
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.fragments.UsersListFragment;
-import pl.adamchodera.randomuser.fragments.dummy.DummyContent.DummyItem;
 import pl.adamchodera.randomuser.network.pojo.User;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.ViewHolder> {
 
     private Context context;
     private final List<User> users;
-    private final UsersListFragment.OnListFragmentInteractionListener mListener;
+    private final UsersListFragment.OnListFragmentInteractionListener listener;
 
     public UsersListAdapter(final Context context, final RealmResults<User> items, final UsersListFragment
             .OnListFragmentInteractionListener listener) {
         this.context = context;
         users = items;
-        mListener = listener;
+        this.listener = listener;
     }
 
     @Override
@@ -46,19 +40,20 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.user = users.get(position);
-        holder.name.setText(holder.user.getName());
+        holder.name.setText(holder.user.getName().toUpperCase());
         holder.email.setText(holder.user.getEmail());
+        holder.date.setText(holder.user.getRegistered().substring(0, holder.user.getRegistered().length() - 3));
 
         Picasso.with(context)
                 .load(holder.user.getPhotoUrl())
-//                .resize(0, (int) context.getResources().getDimension(R.dimen.item_master_image_height))
+                .centerCrop()
+                .fit()
+                .error(R.drawable.ic_error)
                 .into(holder.photo);
 
         holder.root.setOnClickListener(v -> {
-            if (null != mListener) {
-                // Notify the active callbacks interface (the activity, if the
-                // fragment is attached to one) that an item has been selected.
-                mListener.onListFragmentInteraction(holder.user);
+            if (null != listener) {
+                listener.onListFragmentInteraction(holder.user);
             }
         });
     }
@@ -69,17 +64,19 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View root;
-        public final TextView name;
-        public final TextView email;
-        private final ImageView photo;
-        public User user;
+        final View root;
+        final TextView name;
+        final TextView email;
+        final TextView date;
+        final ImageView photo;
+        User user;
 
         public ViewHolder(View view) {
             super(view);
             root = view;
             name = (TextView) view.findViewById(R.id.id_item_user_name);
             email = (TextView) view.findViewById(R.id.id_item_user_email);
+            date = (TextView) view.findViewById(R.id.id_item_user_registration_date);
             photo = (ImageView) view.findViewById(R.id.id_item_user_photo);
         }
 
