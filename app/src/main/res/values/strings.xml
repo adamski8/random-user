@@ -94,4 +94,5 @@
     <string name="user_details_title_phone">Phone</string>
     <string name="user_details_title_location">Location</string>
     <string name="user_details_title_registration_date">Registration date</string>
+    <string name="accessibility_fragment_user_details_image">User\'s photo</string>
 </resources>

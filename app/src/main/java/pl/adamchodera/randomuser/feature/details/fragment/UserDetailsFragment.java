@@ -128,6 +128,8 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
                 .load(user.getLargePictureUrl())
                 .error(R.drawable.ic_error)
                 .placeholder(R.drawable.ic_clock)
+                .centerCrop()
+                .fit()
                 .into(imageView);
     }
 
