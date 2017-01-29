@@ -14,6 +14,7 @@ import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
 import pl.adamchodera.randomuser.database.model.User;
+import pl.adamchodera.randomuser.feature.userslist.adapter.UserItemViewHolder;
 import pl.adamchodera.randomuser.feature.userslist.adapter.UsersListAdapter;
 
 public class UsersListFragment extends Fragment {
@@ -66,6 +67,6 @@ public class UsersListFragment extends Fragment {
     }
 
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(final User item);
+        void displayDetailsView(final UserItemViewHolder viewHolder);
     }
 }

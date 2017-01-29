@@ -5,8 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -17,7 +15,7 @@ import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.database.model.User;
 import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
 
-public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.ViewHolder> {
+public class UsersListAdapter extends RecyclerView.Adapter<UserItemViewHolder> {
 
     private Context context;
     private final List<User> users;
@@ -31,15 +29,16 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public UserItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_fragment_users_list, parent, false);
-        return new ViewHolder(view);
+        return new UserItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final UserItemViewHolder holder, int position) {
         holder.user = users.get(position);
+
         holder.name.setText(holder.user.getFullName().toUpperCase());
         holder.email.setText(holder.user.getEmail());
         holder.date.setText(holder.user.getRegisteredDateFormatted());
@@ -53,7 +52,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
 
         holder.root.setOnClickListener(v -> {
             if (null != listener) {
-                listener.onListFragmentInteraction(holder.user);
+                listener.displayDetailsView(holder);
             }
         });
     }
@@ -61,28 +60,5 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
     @Override
     public int getItemCount() {
         return users.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        final View root;
-        final TextView name;
-        final TextView email;
-        final TextView date;
-        final ImageView photo;
-        User user;
-
-        public ViewHolder(View view) {
-            super(view);
-            root = view;
-            name = (TextView) view.findViewById(R.id.id_item_user_name);
-            email = (TextView) view.findViewById(R.id.id_item_user_email);
-            date = (TextView) view.findViewById(R.id.id_item_user_registration_date);
-            photo = (ImageView) view.findViewById(R.id.id_item_user_photo);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + email.getText() + "'";
-        }
     }
 }

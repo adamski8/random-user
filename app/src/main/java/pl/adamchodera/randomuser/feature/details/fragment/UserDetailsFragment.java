@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.transition.TransitionManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,6 +28,9 @@ import pl.adamchodera.randomuser.database.model.User;
 import pl.adamchodera.randomuser.feature.details.view.SectionView;
 
 public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
+
+    @Bind(R.id.id_fragment_user_details_root)
+    public ViewGroup sceneRoot;
 
     @Bind(R.id.id_fragment_user_details_image)
     public ImageView imageView;
@@ -61,13 +66,15 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setHasOptionsMenu(true);
         if (getArguments() == null) {
             return;
         }
 
         final String userEmail = getArguments().getString(Commons.IntentKeys.USER_EMAIL);
         user = DatabaseHelper.getUserByEmail(userEmail);
+
+
     }
 
     @Override
@@ -79,6 +86,16 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         setupViews();
 
         return view;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().supportFinishAfterTransition();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @OnClick(R.id.id_fragment_user_details_fab_button)
@@ -103,6 +120,8 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         emailView.setText(user.getEmail());
         setupUserImage();
         setupDetailsSection();
+
+        TransitionManager.beginDelayedTransition(sceneRoot);
     }
 
     private void setupDetailsSection() {
@@ -112,6 +131,8 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     private void setupToolbar() {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayUseLogoEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeAsUpIndicator(null);
 
         final String title = user.getFullName().toUpperCase();
         setCollapsingToolbarLayoutTitle(title);
@@ -128,8 +149,6 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
                 .load(user.getLargePictureUrl())
                 .error(R.drawable.ic_error)
                 .placeholder(R.drawable.ic_clock)
-                .centerCrop()
-                .fit()
                 .into(imageView);
     }
 

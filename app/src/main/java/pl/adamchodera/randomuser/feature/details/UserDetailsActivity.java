@@ -19,6 +19,12 @@ public class UserDetailsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
     private void setupFragment() {
         final String userEmail = getIntent().getExtras().getString(Commons.IntentKeys.USER_EMAIL);
         final UserDetailsFragment fragment = UserDetailsFragment.newInstance(userEmail);

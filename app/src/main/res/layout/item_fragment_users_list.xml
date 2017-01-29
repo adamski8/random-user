@@ -22,7 +22,9 @@
             android:id="@+id/id_item_user_photo"
             android:layout_width="@dimen/item_fragment_users_list_image_width"
             android:layout_height="@dimen/item_fragment_users_list_image_height"
-            card_view:srcCompat="@mipmap/ic_launcher"/>
+            android:transitionName="@string/transition_name_user_photo"
+            card_view:srcCompat="@mipmap/ic_launcher"
+            tools:targetApi="lollipop"/>
 
         <TextView
             android:id="@+id/id_item_user_name"
@@ -36,6 +38,8 @@
             android:textAppearance="?attr/textAppearanceListItem"
             android:textColor="#de000000"
             android:textStyle="bold"
+            android:transitionName="@string/transition_name_user_name"
+            tools:targetApi="lollipop"
             tools:text="User Name"/>
 
         <TextView
@@ -50,6 +54,8 @@
             android:textAppearance="?attr/textAppearanceListItem"
             android:textColor="#7a000000"
             android:textSize="14sp"
+            android:transitionName="@string/transition_name_user_email"
+            tools:targetApi="lollipop"
             tools:text="email"/>
 
         <TextView
