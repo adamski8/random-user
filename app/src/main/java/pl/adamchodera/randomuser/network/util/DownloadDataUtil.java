@@ -7,7 +7,11 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DownloadDataUtil {
+public final class DownloadDataUtil {
+
+    private DownloadDataUtil() {
+        throw new AssertionError("No instances.");
+    }
 
     public static void getRandomUsers(final Callback<UsersList> callback) {
         getRetrofitService().getRandomUsers().enqueue(callback);
@@ -18,7 +22,7 @@ public class DownloadDataUtil {
     }
 
     private static RestClientService getRetrofitService() {
-        Retrofit retrofit = new Retrofit.Builder()
+        final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Commons.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

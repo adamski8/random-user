@@ -19,7 +19,7 @@ public class UsersListActivity extends BaseActivity implements UsersListFragment
 
     @Override
     public void displayDetailsView(final UserItemViewHolder viewHolder) {
-        Intent intent = new Intent(this, UserDetailsActivity.class);
+        final Intent intent = new Intent(this, UserDetailsActivity.class);
         intent.putExtra(Commons.IntentKeys.USER_EMAIL, viewHolder.getUser().getEmail());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             startActivity(intent, getTransitionOptions(viewHolder));
@@ -47,11 +47,11 @@ public class UsersListActivity extends BaseActivity implements UsersListFragment
         final String transitionNameUserEmail = getResources().getString(R.string.transition_name_user_email);
         final String transitionNameUserName = getResources().getString(R.string.transition_name_user_name);
 
-        Pair<View, String> p1 = Pair.create(viewHolder.getPhotoView(), transitionNameUserPhoto);
-        Pair<View, String> p2 = Pair.create(viewHolder.getEmailView(), transitionNameUserEmail);
-        Pair<View, String> p3 = Pair.create(viewHolder.getNameView(), transitionNameUserName);
+        final Pair<View, String> p1 = Pair.create(viewHolder.getPhotoView(), transitionNameUserPhoto);
+        final Pair<View, String> p2 = Pair.create(viewHolder.getEmailView(), transitionNameUserEmail);
+        final Pair<View, String> p3 = Pair.create(viewHolder.getNameView(), transitionNameUserName);
 
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2, p3);
+        final ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2, p3);
 
         return options.toBundle();
     }

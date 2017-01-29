@@ -9,10 +9,14 @@ import io.realm.RealmResults;
 import io.realm.exceptions.RealmMigrationNeededException;
 import pl.adamchodera.randomuser.database.model.User;
 
-public class DatabaseHelper {
+public final class DatabaseHelper {
+
+    private DatabaseHelper() {
+        throw new AssertionError("No instances.");
+    }
 
     public static void saveUsers(final ArrayList<User> users) {
-        Realm realm = Realm.getDefaultInstance();
+        final Realm realm = Realm.getDefaultInstance();
 
         realm.beginTransaction();
 
@@ -50,8 +54,8 @@ public class DatabaseHelper {
     }
 
     public static RealmResults<User> getAllUsers() {
-        Realm realm = Realm.getDefaultInstance();
-        RealmQuery<User> query = realm.where(User.class);
+        final Realm realm = Realm.getDefaultInstance();
+        final RealmQuery<User> query = realm.where(User.class);
 
         return query.findAll();
     }

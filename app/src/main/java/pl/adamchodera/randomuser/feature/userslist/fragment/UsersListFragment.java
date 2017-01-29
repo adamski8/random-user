@@ -34,7 +34,7 @@ public class UsersListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_users_list, container, false);
+        final View view = inflater.inflate(R.layout.fragment_users_list, container, false);
         setupRecyclerView((RecyclerView) view);
 
         return view;

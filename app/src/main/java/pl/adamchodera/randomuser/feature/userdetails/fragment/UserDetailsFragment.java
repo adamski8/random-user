@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -56,8 +58,8 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     }
 
     public static UserDetailsFragment newInstance(String userEmail) {
-        UserDetailsFragment fragment = new UserDetailsFragment();
-        Bundle args = new Bundle();
+        final UserDetailsFragment fragment = new UserDetailsFragment();
+        final Bundle args = new Bundle();
         args.putSerializable(Commons.IntentKeys.USER_EMAIL, userEmail);
         fragment.setArguments(args);
         return fragment;
@@ -78,7 +80,7 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_user_details, container, false);
+        final View view = inflater.inflate(R.layout.fragment_user_details, container, false);
         ButterKnife.bind(this, view);
 
         setupViews();
@@ -92,18 +94,19 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
             case android.R.id.home:
                 getActivity().supportFinishAfterTransition();
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @OnClick(R.id.id_fragment_user_details_fab_button)
     public void composeEmailToUser() {
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{user.getEmail()});
-        i.putExtra(Intent.EXTRA_SUBJECT, "This is only a Test.");
+        final Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{user.getEmail()});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "This is only a Test.");
         try {
-            startActivity(Intent.createChooser(i, "Send mail..."));
+            startActivity(Intent.createChooser(intent, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
@@ -130,7 +133,7 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayUseLogoEnabled(false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeAsUpIndicator(null);
 
-        final String title = user.getFullName().toUpperCase();
+        final String title = user.getFullName().toUpperCase(Locale.getDefault());
         setCollapsingToolbarLayoutTitle(title);
     }
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Locale;
 
 import io.realm.RealmResults;
 import pl.adamchodera.randomuser.R;
@@ -30,7 +31,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UserItemViewHolder> {
 
     @Override
     public UserItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_fragment_users_list, parent, false);
         return new UserItemViewHolder(view);
     }
@@ -39,7 +40,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UserItemViewHolder> {
     public void onBindViewHolder(final UserItemViewHolder holder, int position) {
         holder.user = users.get(position);
 
-        holder.name.setText(holder.user.getFullName().toUpperCase());
+        holder.name.setText(holder.user.getFullName().toUpperCase(Locale.getDefault()));
         holder.email.setText(holder.user.getEmail());
         holder.date.setText(holder.user.getRegisteredDateFormatted());
 

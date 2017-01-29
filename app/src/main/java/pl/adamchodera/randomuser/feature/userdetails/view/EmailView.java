@@ -46,13 +46,13 @@ public class EmailView extends TextView {
 
     public void setVisible(final boolean visible) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            int cx = getMeasuredWidth() / 2;
-            int cy = getMeasuredHeight() / 2;
+            final int cx = getMeasuredWidth() / 2;
+            final int cy = getMeasuredHeight() / 2;
 
             if (visible) {
                 setVisibility(VISIBLE);
 
-                int finalRadius = Math.max(getWidth(), getHeight()) / 2;
+                final int finalRadius = Math.max(getWidth(), getHeight()) / 2;
                 final Animator anim = ViewAnimationUtils.createCircularReveal(this, cx, cy, 0, finalRadius);
                 anim.start();
             } else {

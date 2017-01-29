@@ -22,7 +22,7 @@ public class SectionItemView extends NestedScrollView {
     public SectionItemView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view = inflater.inflate(R.layout.view_user_details_section_item_view, this, true);
 
         ButterKnife.bind(this, view);

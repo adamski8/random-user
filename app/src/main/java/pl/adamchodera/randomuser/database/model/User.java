@@ -2,10 +2,8 @@ package pl.adamchodera.randomuser.database.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.network.pojo.RemoteUser;
-
-import static pl.adamchodera.randomuser.common.Commons.Chars.NEW_LINE;
-import static pl.adamchodera.randomuser.common.Commons.Chars.SPACE;
 
 public class User extends RealmObject {
 
@@ -56,7 +54,7 @@ public class User extends RealmObject {
     }
 
     public String getFullName() {
-        return getTitle() + SPACE + getFirstName() + SPACE + getLastName();
+        return getTitle() + Commons.Chars.SPACE + getFirstName() + Commons.Chars.SPACE + getLastName();
     }
 
     public String getStreet() {
@@ -112,10 +110,11 @@ public class User extends RealmObject {
     }
 
     public String getAllPhoneNumbersFormatted() {
-        return phoneNumber + NEW_LINE + cellNumber;
+        return phoneNumber + Commons.Chars.NEW_LINE + cellNumber;
     }
 
     public String getLocationFormatted() {
-        return street + NEW_LINE + postcode + SPACE + city + NEW_LINE + state;
+        return street + Commons.Chars.NEW_LINE + postcode + Commons.Chars.SPACE + city + Commons.Chars.NEW_LINE +
+                state;
     }
 }
