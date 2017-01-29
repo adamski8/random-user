@@ -11,7 +11,7 @@ import io.realm.Realm;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.common.activity.BaseActivity;
-import pl.adamchodera.randomuser.feature.details.UserDetailsActivity;
+import pl.adamchodera.randomuser.feature.userdetails.UserDetailsActivity;
 import pl.adamchodera.randomuser.feature.userslist.adapter.UserItemViewHolder;
 import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
 

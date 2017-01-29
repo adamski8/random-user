@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.feature.details.view;
+package pl.adamchodera.randomuser.feature.userdetails.view;
 
 import android.content.Context;
 import android.support.v4.widget.NestedScrollView;

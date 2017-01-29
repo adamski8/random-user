@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.feature.details.view;
+package pl.adamchodera.randomuser.feature.userdetails.view;
 
 import android.animation.Animator;
 import android.content.Context;

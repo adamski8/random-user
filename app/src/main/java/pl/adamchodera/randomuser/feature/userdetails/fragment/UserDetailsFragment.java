@@ -1,4 +1,4 @@
-package pl.adamchodera.randomuser.feature.details.fragment;
+package pl.adamchodera.randomuser.feature.userdetails.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +23,8 @@ import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
 import pl.adamchodera.randomuser.database.model.User;
-import pl.adamchodera.randomuser.feature.details.view.EmailView;
-import pl.adamchodera.randomuser.feature.details.view.SectionView;
+import pl.adamchodera.randomuser.feature.userdetails.view.EmailView;
+import pl.adamchodera.randomuser.feature.userdetails.view.SectionView;
 
 public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
 
@@ -139,7 +139,7 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         Picasso.with(getContext())
                 .load(user.getLargePictureUrl())
                 .error(R.drawable.ic_error)
-                .placeholder(R.drawable.ic_clock)
+//                .placeholder(R.drawable.ic_clock)
                 .into(imageView);
     }
 

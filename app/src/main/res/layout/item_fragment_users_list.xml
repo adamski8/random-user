@@ -28,6 +28,7 @@
 
         <TextView
             android:id="@+id/id_item_user_name"
+            style="@style/UserNameTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_small"
@@ -35,15 +36,12 @@
             android:layout_marginStart="@dimen/margin_standard"
             android:layout_toEndOf="@+id/id_item_user_photo"
             android:layout_toRightOf="@+id/id_item_user_photo"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:textColor="#de000000"
-            android:textStyle="bold"
-            android:transitionName="@string/transition_name_user_name"
-            tools:targetApi="lollipop"
-            tools:text="User Name"/>
+            android:textColor="@color/text_color_title"
+            android:textSize="@dimen/text_size_standard"/>
 
         <TextView
             android:id="@+id/id_item_user_email"
+            style="@style/UserEmailTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/id_item_user_name"
@@ -52,16 +50,16 @@
             android:layout_toEndOf="@+id/id_item_user_photo"
             android:layout_toRightOf="@+id/id_item_user_photo"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textColor="#7a000000"
-            android:textSize="14sp"
-            android:transitionName="@string/transition_name_user_email"
-            tools:targetApi="lollipop"
-            tools:text="email"/>
+            android:textColor="@color/text_color_subtitle"
+            android:textSize="@dimen/text_size_medium"/>
 
         <TextView
             android:id="@+id/id_item_user_registration_date"
+            style="@style/StandardTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/text_color_subtitle"
+            android:textSize="@dimen/text_size_small"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"

@@ -17,22 +17,21 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/id_fragment_user_details_toolbar_layout"
+            style="@style/UserNameTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            android:transitionName="@string/transition_name_user_name"
             app:collapsedTitleTextAppearance="@style/CollapsedAppBar"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@style/ExpandedAppBar"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            tools:background="@drawable/ic_error"
-            tools:targetApi="lollipop">
+            tools:background="@drawable/ic_error">
 
             <ImageView
                 android:id="@+id/id_fragment_user_details_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/activity_user_details_image_margin_bottom"
+                android:layout_marginBottom="@dimen/fragment_user_details_image_margin_bottom"
                 android:contentDescription="@string/accessibility_fragment_user_details_image"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
@@ -49,7 +48,7 @@
                 app:layout_collapseMode="pin">
             </android.support.v7.widget.Toolbar>
 
-            <pl.adamchodera.randomuser.feature.details.view.EmailView
+            <pl.adamchodera.randomuser.feature.userdetails.view.EmailView
                 android:id="@+id/id_fragment_user_details_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +62,7 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <pl.adamchodera.randomuser.feature.details.view.SectionView
+    <pl.adamchodera.randomuser.feature.userdetails.view.SectionView
         android:id="@+id/id_fragment_user_details_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

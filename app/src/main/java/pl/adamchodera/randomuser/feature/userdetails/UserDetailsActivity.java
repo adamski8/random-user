@@ -1,11 +1,11 @@
-package pl.adamchodera.randomuser.feature.details;
+package pl.adamchodera.randomuser.feature.userdetails;
 
 import android.os.Bundle;
 
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.common.activity.BaseActivity;
-import pl.adamchodera.randomuser.feature.details.fragment.UserDetailsFragment;
+import pl.adamchodera.randomuser.feature.userdetails.fragment.UserDetailsFragment;
 
 public class UserDetailsActivity extends BaseActivity {
 
@@ -19,15 +19,9 @@ public class UserDetailsActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-    }
-
     private void setupFragment() {
         final String userEmail = getIntent().getExtras().getString(Commons.IntentKeys.USER_EMAIL);
         final UserDetailsFragment fragment = UserDetailsFragment.newInstance(userEmail);
-        getSupportFragmentManager().beginTransaction().add(R.id.id_activity_user_details_root_view, fragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.id_activity_user_details_root, fragment).commit();
     }
 }
