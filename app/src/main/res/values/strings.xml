@@ -7,4 +7,6 @@
     <string name="transition_name_user_photo">key_transition_name_user_photo</string>
     <string name="transition_name_user_email">key_transition_name_user_email</string>
     <string name="transition_name_user_name">key_transition_name_user_name</string>
+    <string name="no_internet_connection_available">No internet connection available. Please turn on wifi/data and come back.</string>
+    <string name="downloading_users_failed">Downloading users failed.</string>
 </resources>

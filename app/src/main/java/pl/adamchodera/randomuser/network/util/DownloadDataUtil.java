@@ -13,6 +13,10 @@ public class DownloadDataUtil {
         getRetrofitService().getRandomUsers().enqueue(callback);
     }
 
+    public static void cancelFetchingUsers() {
+        getRetrofitService().getRandomUsers().cancel();
+    }
+
     private static RestClientService getRetrofitService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Commons.BASE_URL)

@@ -2,6 +2,7 @@ package pl.adamchodera.randomuser.feature;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,11 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         if (DatabaseHelper.containUsers()) {
             gotToMainActivity();
@@ -38,8 +44,15 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        DownloadDataUtil.cancelFetchingUsers();
+    }
+
     private void internetConnectionNotAvailable() {
-        // TODO implement
+        displayToastMessage(R.string.no_internet_connection_available);
     }
 
     private void fetchAndSaveLocallyDataFromServer() {
@@ -53,7 +66,7 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onFailure(Call<UsersList> call, Throwable t) {
                 t.printStackTrace();
-                // TODO implement
+                displayToastMessage(R.string.downloading_users_failed);
             }
         });
     }
@@ -67,5 +80,13 @@ public class SplashActivity extends BaseActivity {
 
     private void gotToMainActivity() {
         startActivity(new Intent(this, UsersListActivity.class));
+    }
+
+    private void displayToastMessage(final int resId) {
+        Toast.makeText(this, getTextByResId(resId), Toast.LENGTH_LONG).show();
+    }
+
+    private String getTextByResId(final int resId) {
+        return getResources().getString(resId);
     }
 }
