@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.transition.TransitionManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -25,6 +23,7 @@ import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
 import pl.adamchodera.randomuser.database.model.User;
+import pl.adamchodera.randomuser.feature.details.view.EmailView;
 import pl.adamchodera.randomuser.feature.details.view.SectionView;
 
 public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
@@ -36,7 +35,7 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     public ImageView imageView;
 
     @Bind(R.id.id_fragment_user_details_email)
-    public TextView emailView;
+    public EmailView emailView;
 
     @Bind(R.id.id_fragment_user_details_app_bar)
     public AppBarLayout appBarLayout;
@@ -73,8 +72,6 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
 
         final String userEmail = getArguments().getString(Commons.IntentKeys.USER_EMAIL);
         user = DatabaseHelper.getUserByEmail(userEmail);
-
-
     }
 
     @Override
@@ -102,7 +99,7 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     public void composeEmailToUser() {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"}); // TODO change
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{user.getEmail()});
         i.putExtra(Intent.EXTRA_SUBJECT, "This is only a Test.");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));
@@ -117,14 +114,8 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         }
 
         setupToolbar();
-        emailView.setText(user.getEmail());
         setupUserImage();
-        setupDetailsSection();
-
-        TransitionManager.beginDelayedTransition(sceneRoot);
-    }
-
-    private void setupDetailsSection() {
+        emailView.setText(user.getEmail());
         sectionView.setupView(user);
     }
 
@@ -154,21 +145,15 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
 
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-        if (verticalOffset == 0) {
-            // expanded
-            emailView.setTextSize(16);
-            emailView.setVisibility(View.VISIBLE);
-            emailView.setPadding((int) (getResources().getDimension(R.dimen.activity_user_details_email_padding_left_expanded)),
-                    0, 0, (int) getResources().getDimension(R.dimen.margin_medium));
-        } else if (appBarLayout.getTotalScrollRange() == Math.abs(verticalOffset)) {
-            // collapsed
-            emailView.setVisibility(View.VISIBLE);
-            emailView.setTextSize(20);
-            emailView.setPadding((int) (getResources().getDimension(R.dimen.activity_user_details_email_padding_left_collapsed)), 0, 0, (int)
-                    (getResources().getDimension(R.dimen.toolbar_default_height) -
-                            getResources().getDimension(R.dimen.margin_medium)));
+        final boolean isToolbarExpanded = verticalOffset == 0;
+        final boolean isToolbarCollapsed = appBarLayout.getTotalScrollRange() == Math.abs(verticalOffset);
+        if (isToolbarExpanded) {
+            emailView.setupViewWhenToolbarExpanded();
+        } else if (isToolbarCollapsed) {
+            emailView.setupViewWhenToolbarCollapsed();
         } else {
-            emailView.setVisibility(View.INVISIBLE);
+            // between expanded and collapsed
+            emailView.setVisible(false);
         }
     }
 
@@ -177,7 +162,6 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         super.onResume();
         appBarLayout.addOnOffsetChangedListener(this);
     }
-
 
     @Override
     public void onStop() {

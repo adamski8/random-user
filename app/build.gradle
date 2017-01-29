@@ -40,7 +40,6 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
-    compile "com.android.support:transition:$SUPPORT_LIBRARY_VERSION"
 
     // networking
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_LIBRARY_VERSION"

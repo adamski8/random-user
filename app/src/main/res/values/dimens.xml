@@ -18,5 +18,7 @@
     <dimen name="view_user_details_section_item_min_height">72dp</dimen>
     <dimen name="view_user_details_section_item_padding_top">20dp</dimen>
     <dimen name="card_view_padding_bottom">24dp</dimen>
+    <dimen name="text_size_standard">16sp</dimen>
+    <dimen name="text_size_big">20sp</dimen>
 
 </resources>
