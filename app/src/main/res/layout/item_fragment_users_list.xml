@@ -24,7 +24,8 @@
             android:layout_height="@dimen/item_fragment_users_list_image_height"
             android:transitionName="@string/transition_name_user_photo"
             card_view:srcCompat="@mipmap/ic_launcher"
-            tools:targetApi="lollipop"/>
+            tools:targetApi="lollipop"
+            android:contentDescription="@string/accessibility_user_photo"/>
 
         <TextView
             android:id="@+id/id_item_user_name"

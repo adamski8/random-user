@@ -119,7 +119,12 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         sectionView.setupView(user);
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void setupToolbar() {
+        if (((AppCompatActivity) getActivity()).getSupportActionBar() == null) {
+            return;
+        }
+
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayUseLogoEnabled(false);

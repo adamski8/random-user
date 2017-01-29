@@ -3,7 +3,7 @@
     <string name="user_details_title_phone">Phone</string>
     <string name="user_details_title_location">Location</string>
     <string name="user_details_title_registration_date">Registration date</string>
-    <string name="accessibility_fragment_user_details_image">User\'s photo</string>
+    <string name="accessibility_user_photo">User\'s photo</string>
     <string name="transition_name_user_photo">key_transition_name_user_photo</string>
     <string name="transition_name_user_email">key_transition_name_user_email</string>
     <string name="transition_name_user_name">key_transition_name_user_name</string>

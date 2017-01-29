@@ -11,12 +11,9 @@
     <dimen name="fragment_user_details_image_margin_bottom">56dp</dimen>
     <dimen name="activity_user_details_email_padding_left_expanded">34dp</dimen>
     <dimen name="activity_user_details_email_padding_left_collapsed">75dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
     <dimen name="item_fragment_users_list_image_height">150dp</dimen>
     <dimen name="item_fragment_users_list_image_width">100dp</dimen>
     <dimen name="view_user_details_section_item_min_height">72dp</dimen>
-    <dimen name="view_user_details_section_item_padding_top">20dp</dimen>
     <dimen name="card_view_padding_bottom">24dp</dimen>
     <dimen name="text_size_big">20sp</dimen>
     <dimen name="text_size_standard">16sp</dimen>

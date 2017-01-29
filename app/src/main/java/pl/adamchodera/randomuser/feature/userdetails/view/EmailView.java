@@ -12,8 +12,6 @@ import pl.adamchodera.randomuser.R;
 
 public class EmailView extends TextView {
 
-    private boolean isAnimating = false;
-
     public EmailView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
     }

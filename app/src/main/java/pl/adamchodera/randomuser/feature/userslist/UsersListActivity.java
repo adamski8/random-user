@@ -43,6 +43,7 @@ public class UsersListActivity extends BaseActivity implements UsersListFragment
         }
     }
 
+    @SuppressWarnings("unchecked")
     private Bundle getTransitionOptions(final UserItemViewHolder viewHolder) {
         final String transitionNameUserPhoto = getResources().getString(R.string.transition_name_user_photo);
         final String transitionNameUserEmail = getResources().getString(R.string.transition_name_user_email);

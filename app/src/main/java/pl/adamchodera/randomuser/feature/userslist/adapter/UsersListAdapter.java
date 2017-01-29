@@ -17,7 +17,7 @@ import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
 
 public class UsersListAdapter extends RecyclerView.Adapter<UserItemViewHolder> {
 
-    private Context context;
+    private final Context context;
     private final List<User> users;
     private final UsersListFragment.OnListFragmentInteractionListener listener;
 
