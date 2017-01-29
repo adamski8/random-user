@@ -7,10 +7,10 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.view.View;
 
-import io.realm.Realm;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.common.activity.BaseActivity;
+import pl.adamchodera.randomuser.database.DatabaseHelper;
 import pl.adamchodera.randomuser.feature.userdetails.UserDetailsActivity;
 import pl.adamchodera.randomuser.feature.userslist.adapter.UserItemViewHolder;
 import pl.adamchodera.randomuser.feature.userslist.fragment.UsersListFragment;
@@ -38,9 +38,7 @@ public class UsersListActivity extends BaseActivity implements UsersListFragment
     protected void onStop() {
         super.onStop();
 
-        if (!Realm.getDefaultInstance().isClosed()) {
-            Realm.getDefaultInstance().close();
-        }
+        DatabaseHelper.closeDatabase();
     }
 
     @SuppressWarnings("unchecked")

@@ -45,10 +45,8 @@ public class DatabaseHelper {
         final Realm realm = Realm.getDefaultInstance();
         final RealmQuery<User> query = realm.where(User.class);
         query.contains("email", userEmail);
-        final User user = query.findFirst();
-        realm.close();
 
-        return user;
+        return query.findFirst();
     }
 
     public static RealmResults<User> getAllUsers() {
@@ -56,5 +54,11 @@ public class DatabaseHelper {
         RealmQuery<User> query = realm.where(User.class);
 
         return query.findAll();
+    }
+
+    public static void closeDatabase() {
+        if (!Realm.getDefaultInstance().isClosed()) {
+            Realm.getDefaultInstance().close();
+        }
     }
 }

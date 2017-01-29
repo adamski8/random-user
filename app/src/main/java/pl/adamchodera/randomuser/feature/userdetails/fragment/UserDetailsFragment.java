@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.realm.Realm;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.database.DatabaseHelper;
@@ -113,6 +114,9 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
             return;
         }
 
+        if (Realm.getDefaultInstance().isClosed()) {
+            Realm.getDefaultInstance();
+        }
         setupToolbar();
         setupUserImage();
         emailView.setText(user.getEmail());
@@ -140,7 +144,6 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
         Picasso.with(getContext())
                 .load(user.getLargePictureUrl())
                 .error(R.drawable.ic_error)
-//                .placeholder(R.drawable.ic_clock)
                 .into(imageView);
     }
 
@@ -168,5 +171,11 @@ public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffs
     public void onStop() {
         super.onStop();
         appBarLayout.removeOnOffsetChangedListener(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        DatabaseHelper.closeDatabase();
     }
 }
