@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#388E3C</color>
     <color name="colorAccent">#CDDC39</color>
     <color name="dividerColor">#BDBDBD</color>
-    <color name="text_color_title">#de000000</color>
-    <color name="text_color_subtitle">#7a000000</color>
+    <color name="text_color_black">#de000000</color>
+    <color name="text_color_grey">#7a000000</color>
 </resources>

@@ -36,7 +36,7 @@
             android:layout_marginStart="@dimen/margin_standard"
             android:layout_toEndOf="@+id/id_item_user_photo"
             android:layout_toRightOf="@+id/id_item_user_photo"
-            android:textColor="@color/text_color_title"
+            android:textColor="@color/text_color_black"
             android:textSize="@dimen/text_size_standard"/>
 
         <TextView
@@ -50,7 +50,7 @@
             android:layout_toEndOf="@+id/id_item_user_photo"
             android:layout_toRightOf="@+id/id_item_user_photo"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textColor="@color/text_color_subtitle"
+            android:textColor="@color/text_color_grey"
             android:textSize="@dimen/text_size_medium"/>
 
         <TextView
@@ -58,7 +58,7 @@
             style="@style/StandardTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/text_color_subtitle"
+            android:textColor="@color/text_color_grey"
             android:textSize="@dimen/text_size_small"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
