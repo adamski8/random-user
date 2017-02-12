@@ -13,7 +13,7 @@ public final class UsersMapper {
     }
 
     public static ArrayList<User> fromRemoteUsers(final List<RemoteUser> remoteUsers) {
-        final ArrayList<User> users = new ArrayList<>();
+        final ArrayList<User> users = new ArrayList<>(remoteUsers.size());
 
         for (RemoteUser remoteUser : remoteUsers) {
             users.add(new User(remoteUser));
