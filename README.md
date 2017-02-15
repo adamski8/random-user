@@ -5,7 +5,7 @@ Sample application which consumes APIs with Retrofit and stores data locally in 
 Styled with Material Desing which and composed of: CoordinatorLayout, AppBarLayout, CollapsingToolbarLayout, FloatingActionButton and CardView with cool scene transition animations.
 Feature driven approach for architecture.
 
-# Used libraries:
+# Used libraries
 Google Support Libraries:
 - support-v4
 - appcompat-v7
