@@ -18,3 +18,4 @@ Other:
 - Gson
 - Picasso
 - Butter Knife
+- Realm
