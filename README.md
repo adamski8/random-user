@@ -19,4 +19,3 @@ Other:
 - Picasso
 - Butter Knife
 - Realm
-- LeakCanary
