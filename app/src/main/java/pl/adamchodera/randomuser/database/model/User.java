@@ -2,10 +2,11 @@ package pl.adamchodera.randomuser.database.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import lombok.Data;
 import pl.adamchodera.randomuser.common.Commons;
 import pl.adamchodera.randomuser.network.pojo.RemoteUser;
 
-public class User extends RealmObject {
+public @Data class User extends RealmObject {
 
     @PrimaryKey
     private String email;
@@ -57,56 +58,8 @@ public class User extends RealmObject {
         return getTitle() + Commons.Chars.SPACE + getFirstName() + Commons.Chars.SPACE + getLastName();
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
     public String getRegisteredDateFormatted() {
         return registeredDate.substring(0, registeredDate.length() - 3);
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getCellNumber() {
-        return cellNumber;
-    }
-
-    public String getLargePictureUrl() {
-        return largePictureUrl;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getMediumPictureUrl() {
-        return mediumPictureUrl;
     }
 
     public String getAllPhoneNumbersFormatted() {

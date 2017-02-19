@@ -1,25 +1,12 @@
 package pl.adamchodera.randomuser.network.pojo;
 
+import lombok.Getter;
+
 public class Location {
 
-    private String street;
-    private String city;
-    private String state;
-    private String postcode;
+    private @Getter String street;
+    private @Getter String city;
+    private @Getter String state;
+    private @Getter String postcode;
 
-    public String getStreet() {
-        return street;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
 }

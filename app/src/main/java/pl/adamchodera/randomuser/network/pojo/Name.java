@@ -1,20 +1,10 @@
 package pl.adamchodera.randomuser.network.pojo;
 
+import lombok.Getter;
+
 public class Name {
 
-    private String title;
-    private String first;
-    private String last;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getFirst() {
-        return first;
-    }
-
-    public String getLast() {
-        return last;
-    }
+    private @Getter String title;
+    private @Getter String first;
+    private @Getter String last;
 }

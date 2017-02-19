@@ -1,15 +1,10 @@
 package pl.adamchodera.randomuser.network.pojo;
 
+import lombok.Getter;
+
 public class Picture {
 
-    private String large;
-    private String medium;
+    private @Getter String large;
+    private @Getter String medium;
 
-    public String getLarge() {
-        return large;
-    }
-
-    public String getMedium() {
-        return medium;
-    }
 }

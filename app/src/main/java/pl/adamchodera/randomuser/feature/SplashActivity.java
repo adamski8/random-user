@@ -72,7 +72,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void parseAndSaveResponse(final Response<UsersList> response) {
-        final List<RemoteUser> remoteUsers = response.body().getUsers();
+        final List<RemoteUser> remoteUsers = response.body().getResults();
         final ArrayList<User> users = UsersMapper.fromRemoteUsers(remoteUsers);
 
         DatabaseHelper.saveUsers(users);
