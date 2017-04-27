@@ -6,20 +6,20 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.adamchodera.randomuser.R;
 import pl.adamchodera.randomuser.database.model.User;
 
 public class SectionView extends NestedScrollView {
 
-    @Bind(R.id.id_view_user_details_section_view_phone)
+    @BindView(R.id.id_view_user_details_section_view_phone)
     SectionItemView phoneView;
 
-    @Bind(R.id.id_view_user_details_section_view_location)
+    @BindView(R.id.id_view_user_details_section_view_location)
     SectionItemView locationView;
 
-    @Bind(R.id.id_view_user_details_section_view_registration_date)
+    @BindView(R.id.id_view_user_details_section_view_registration_date)
     SectionItemView registrationDateView;
 
     public SectionView(final Context context, final AttributeSet attrs) {

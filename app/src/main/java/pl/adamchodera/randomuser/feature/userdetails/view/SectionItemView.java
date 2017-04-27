@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.adamchodera.randomuser.R;
 
 public class SectionItemView extends NestedScrollView {
 
-    @Bind(R.id.id_view_user_details_section_item_view_title)
+    @BindView(R.id.id_view_user_details_section_item_view_title)
     TextView titleView;
 
-    @Bind(R.id.id_view_user_details_section_item_view_value)
+    @BindView(R.id.id_view_user_details_section_item_view_value)
     TextView valueView;
 
     public SectionItemView(final Context context, final AttributeSet attrs) {

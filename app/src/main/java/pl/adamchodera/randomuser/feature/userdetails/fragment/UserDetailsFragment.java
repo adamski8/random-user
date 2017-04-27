@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.realm.Realm;
@@ -31,25 +31,25 @@ import pl.adamchodera.randomuser.feature.userdetails.view.SectionView;
 
 public class UserDetailsFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
 
-    @Bind(R.id.id_fragment_user_details_root)
+    @BindView(R.id.id_fragment_user_details_root)
     public ViewGroup sceneRoot;
 
-    @Bind(R.id.id_fragment_user_details_image)
+    @BindView(R.id.id_fragment_user_details_image)
     public ImageView imageView;
 
-    @Bind(R.id.id_fragment_user_details_email)
+    @BindView(R.id.id_fragment_user_details_email)
     public EmailView emailView;
 
-    @Bind(R.id.id_fragment_user_details_app_bar)
+    @BindView(R.id.id_fragment_user_details_app_bar)
     public AppBarLayout appBarLayout;
 
-    @Bind(R.id.id_fragment_user_details_toolbar_layout)
+    @BindView(R.id.id_fragment_user_details_toolbar_layout)
     public CollapsingToolbarLayout collapsingToolbarLayout;
 
-    @Bind(R.id.id_fragment_user_details_toolbar)
+    @BindView(R.id.id_fragment_user_details_toolbar)
     public Toolbar toolbar;
 
-    @Bind(R.id.id_fragment_user_details_content)
+    @BindView(R.id.id_fragment_user_details_content)
     public SectionView sectionView;
 
     private User user;
